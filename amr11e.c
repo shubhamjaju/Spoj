@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<math.h>
+main()
+{
+   int i=43,j,x,k=2,t,n,a[1001],flag=0;
+   a[0]=30;
+   a[1]=42;
+   while(k<=1000)
+   {
+       x=i;flag=0;
+       if(x%2==0) 
+          flag++;
+       while(x%2==0)
+       {
+          x=x/2;
+       }
+       for(j=3;j<=sqrt(i);j+=2)
+       {
+         if(x%j==0)
+           flag++;
+         while(x%j==0)
+          {
+             x=x/j;
+           }
+       }
+       if(x>2)
+       {
+         flag++;
+       }
+     if(flag>=3)
+       {
+          a[k]=i;
+          k++;
+       }
+     i++;
+   }
+   scanf("%d",&t);
+   while(t--)
+   {
+      scanf("%d",&n);
+      printf("%d\n",a[n-1]);
+   }
+   return 0;  
+}
